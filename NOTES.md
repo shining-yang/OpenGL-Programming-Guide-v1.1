@@ -58,7 +58,8 @@ void glCullFace(GLenum mode);
 > they're converted to screen coordinates.
 > The mode is either GL_FRONT, GL_BACK, or GL_FRONT_AND_BACK to
 > indicate front-facing, back-facing, or all polygons.
-> To take effect, culling must be enabled using glEnable() with GL_CULL_FACE;
+> To take effect, culling must be enabled using glEnable() with
+> GL_CULL_FACE;
 > it can be disabled with glDisable() and the same argument.
 
 
@@ -68,7 +69,55 @@ glDisable(GL_POLYGON_STIPPLE);
 
 void glEdgeFlag(GLboolean flag);
 void glEdgeFlagv(const GLboolean *flag);
-> Indicates whether a vertex should be considered as initializing a boundary
-> edge of a polygon. If flag is GL_TRUE, the edge flag is set to TRUE (the
-> default), and any vertices created are considered to precede boundary
-> edges until this function is called again with flag being GL_FALSE.
+> Indicates whether a vertex should be considered as
+> initializing a boundary edge of a polygon.
+> If flag is GL_TRUE, the edge flag is set to TRUE (the
+> default), and any vertices created are considered to
+> precede boundary edges until this function is
+> called again with flag being GL_FALSE.
+
+void glNormal3{bsidf}(TYPEnx, TYPEny, TYPEnz);
+void glNormal3{bsidf}v(const TYPE *v);
+> Sets the current normal vector as specified by the arguments.
+> The nonvector version (without the v) takes three arguments,
+> which specify an (nx, ny, nz) vector that's taken to be the
+> normal. Alternatively, you can use the vector
+> version of this function (with the v) and supply a single
+> array of three elements to specify the desired normal.
+> The b, s, and i versions scale their
+> parameter values linearly to the range [-1.0,1.0].
+
+#### Vertex Array
+1. Enabling Arrays  
+  void glEnableClientState(GLenum array)
+> Specifies the array to enable. Symbolic constants
+> GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_INDEX_ARRAY,
+> GL_NORMAL_ARRAY, GL_TEXTURE_COORD_ARRAY, and
+> GL_EDGE_FLAG_ARRAY are acceptable parameters.  
+
+  void glDisableClientState(GLenum array);
+
+2. Specifying Data for the Arrays  
+void glVertexPointer(GLint size, GLenum type, GLsizei stride,
+const GLvoid *pointer);  
+void glColorPointer(GLint size, GLenum type, GLsizei stride,
+const GLvoid *pointer);  
+void glIndexPointer(GLenum type, GLsizei stride, const GLvoid *pointer);  
+void glNormalPointer(GLenum type, GLsizei stride,
+const GLvoid *pointer);  
+void glTexCoordPointer(GLint size, GLenum type, GLsizei stride,
+const GLvoid *pointer);  
+void glEdgeFlagPointer(GLsizei stride, const GLvoid *pointer);
+
+3. Dereferencing and Rendering  
+void glArrayElement(GLint ith);  
+void glDrawElements(GLenum mode, GLsizei count, GLenum type,
+void *indices);  
+void glDrawArrays(GLenum mode, GLint first, GLsizei count);  
+void glInterleavedArrays(GLenum format, GLsizei stride, void *pointer);  
+
+#### Attribute Groups
+void glPushAttrib(GLbitfield mask);  
+void glPopAttrib(void);  
+void glPushClientAttrib(GLbitfield mask);  
+void glPopClientAttrib(void);  
