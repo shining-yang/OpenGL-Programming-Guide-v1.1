@@ -1,6 +1,3 @@
-Notes for study
-===============
-
 ## CH2: State Management and Drawing Geometric Objects
 ----
 
@@ -16,8 +13,8 @@ void glFlush(void);
 void glFinish(void);
 
 #### Points, Lines, Polygons
-void glRect{sifd} (TYPEx1, TYPEy1, TYPEx2, TYPEy2);  
-void glRect{sifd}v (TYPE*v1, TYPE*v2);  
+void glRect{sifd}(TYPEx1, TYPEy1, TYPEx2, TYPEy2);  
+void glRect{sifd}v(TYPE* v1, TYPE* v2);  
 void glVertex{234}{sifd}[v] (TYPEcoords);  
 void glBegin(GLenum mode);  
 void glEnd();  
@@ -26,11 +23,11 @@ void glEnd();
 void glEnable(GLenum cap);  
 void glDisable(GLenum cap);  
 GLboolean glIsEnabled(GLenum capability);  
-void glGetBooleanv(GLenum pname, GLboolean *params);  
-void glGetIntegerv(GLenum pname, GLint *params);  
-void glGetFloatv(GLenum pname, GLfloat *params);  
-void glGetDoublev(GLenum pname, GLdouble *params);  
-void glGetPointerv(GLenum pname, GLvoid **params);  
+void glGetBooleanv(GLenum pname, GLboolean* params);  
+void glGetIntegerv(GLenum pname, GLint* params);  
+void glGetFloatv(GLenum pname, GLfloat* params);  
+void glGetDoublev(GLenum pname, GLdouble* params);  
+void glGetPointerv(GLenum pname, GLvoid** params);  
 
 #### Displaying Points, Lines, and Polygons
 void glPointSize(GLfloat size);  
